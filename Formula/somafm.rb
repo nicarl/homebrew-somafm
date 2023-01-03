@@ -5,8 +5,8 @@
 class Somafm < Formula
   desc "Cli application to listen to somafm stations"
   homepage "https://github.com/nicarl/somafm"
-  url "https://github.com/nicarl/somafm/archive/v0.2.12.tar.gz"
-  sha256 "a4bbf24c7b389a7c32345b9934b32e89944000d41147e93e3f8a8658c7c270df"
+  url "https://github.com/nicarl/somafm/archive/v0.3.0.tar.gz"
+  sha256 "25767934c830d0542be2005176650903b894989265d63dc0fb88ecb114dbddda"
   license "Apache-2.0"
 
   depends_on "go" => :build
