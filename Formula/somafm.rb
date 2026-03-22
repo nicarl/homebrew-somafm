@@ -12,6 +12,10 @@ class Somafm < Formula
   depends_on "go" => :build
   depends_on "pkg-config" => :build
 
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   def install
     system "go", "build", "-o", bin/"somafm", "./cmd/somafm.go"
   end
