@@ -12,11 +12,12 @@ class Somafm < Formula
   depends_on "go" => :build
   depends_on "pkg-config" => :build
 
-  on_linux do
-    depends_on "alsa-lib" => :build
-  end
-
   def install
+    # On Linux, use the system's ALSA libraries (which include PulseAudio/PipeWire
+    # plugins) instead of Homebrew's standalone alsa-lib
+    if OS.linux?
+      ENV.prepend_path "PKG_CONFIG_PATH", "/usr/lib/x86_64-linux-gnu/pkgconfig"
+    end
     system "go", "build", "-o", bin/"somafm", "./cmd/somafm.go"
   end
 end
