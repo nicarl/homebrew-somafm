@@ -5,19 +5,17 @@
 class Somafm < Formula
   desc "Cli application to listen to somafm stations"
   homepage "https://github.com/nicarl/somafm"
-  url "https://github.com/nicarl/somafm/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "c2c2c77d556bf57a4942fce87d8c2f32130f7b7cc5ebedf0ccf29f3d5834a5cf"
+  url "https://github.com/nicarl/somafm/archive/refs/tags/v1.0.4.tar.gz"
+  sha256 "e22eccabaa5b8552a2d9d265a55090cfcaf7899c146706cdfdd7b69ec50f3f1b"
   license "Apache-2.0"
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
 
   def install
-    # On Linux, use the system's ALSA libraries (which include PulseAudio/PipeWire
-    # plugins) instead of Homebrew's standalone alsa-lib
     if OS.linux?
-      ENV.prepend_path "PKG_CONFIG_PATH", "/usr/lib/x86_64-linux-gnu/pkgconfig"
-    end
-    system "go", "build", "-o", bin/"somafm", "./cmd/somafm.go"
+  ENV.prepend_path "PKG_CONFIG_PATH", "/usr/lib/x86_64-linux-gnu/pkgconfig"
+end
+system "go", "build", "-o", bin/"somafm", "./cmd/somafm.go"
   end
 end
