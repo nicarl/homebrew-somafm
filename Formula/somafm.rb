@@ -13,7 +13,7 @@ class Somafm < Formula
   depends_on "pkg-config" => :build
 
   on_linux do
-    depends_on "alsa-lib"
+    depends_on "alsa-lib" => :build
   end
 
   def install
